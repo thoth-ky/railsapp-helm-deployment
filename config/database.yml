@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: rails_k8s_helm_production
-  username: rails_k8s_helm
-  password: <%= ENV['RAILS_K8S_HELM_DATABASE_PASSWORD'] %>
+  database: <%= ENV['POSTGRES_DB'] %>
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_DB_PASSWORD'] %>
+  host: <%= ENV['POSTGRES_HOST'] %>

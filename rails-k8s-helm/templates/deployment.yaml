@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "rails-k8s-helm.fullname" . }}
+  labels:
+    {{- include "rails-k8s-helm.labels" . | nindent 4 }}
+
+spec:
+  replicas: {{ .Values.replicaCount }}
+  template:
+      metadata:
+      labels:
+          app: {{ include "rails-k8s-helm.fullname" . }}
+      spec:
+        containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.internalPort }}
+          env:
+          {{- range $key, $val := .Values.global.rails_env_vars }}
+            - name: {{ $key }}
+              value: {{ $val | quote }}
+          {{- end }}
+
+          resources: {{ toYaml .Values.resources | indent 12 }}
