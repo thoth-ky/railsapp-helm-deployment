@@ -1,37 +1,30 @@
-# Default values for rails-k8s-helm.
+# Default values for helm-chart.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: thothky/rails-helm-example
-  tag: 0.1.0
+  repository: thothky/rails-app-helm-example
+  tag: 1.0.0
   pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart version.
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-global:
-  rails_env_vars:
-    POSTGRES_HOST: "localhost"
-    POSTGRES_DB: "rails_app_db"
-    POSTGRES_USERNAME: "rails_app"
-    RAILS_ENV: "production"
-    POSTGRES_DB_PASSWORD: ""
-     
-  postgresql:
-    postgresqlUsername: rails_app
-    postgresqlPassword: 'password'
-    postgresqlDatabase: rails_app_db
-
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
+  # Annotations to add to the service account
+  annotations: {}
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
-  name:
+  name: ""
+
+podAnnotations: {}
 
 podSecurityContext: {}
   # fsGroup: 2000
@@ -45,7 +38,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  name: http
+  name: htto
   type: NodePort
   externalPort: 80
   internalPort: 3000
@@ -64,16 +57,19 @@ ingress:
   #      - chart-example.local
 
 resources:
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
     cpu: 100m
     memory: 128Mi
   requests:
     cpu: 100m
     memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
 
 nodeSelector: {}
 
