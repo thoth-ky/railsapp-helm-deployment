@@ -37,11 +37,6 @@ spec:
             - name: DATABASE_URL
                # TODO: get this from a secret. Can connect with a cloud provisioned db
               value: "postgres://rails_app:password@localhost:5432/rails_app_db"
-            - name: RAILS_ENV
-              value: "production"
-            - name: RAILS_MASTER_KEY
-              # TODO: put this in a secret
-              value: "93c49c32a80e0cf9c93e182749fccd59"
 
           ports:
             - name: http
