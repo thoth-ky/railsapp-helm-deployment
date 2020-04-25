@@ -82,3 +82,4 @@ global:
     postgresqlUsername: rails_app
     postgresqlPostgresPassword: 'password'
     postgresqlDatabase: rails_app_db
+    image.tag: 12

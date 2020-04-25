@@ -28,5 +28,5 @@ maintainers:
 
 dependencies:
   - name: postgresql
-    alias: pg-prod
+    version: 8.0.0
     repository:  https://charts.bitnami.com/bitnami
