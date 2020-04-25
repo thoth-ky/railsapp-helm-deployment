@@ -1,24 +1,57 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## INTRO
 
-Things you may want to cover:
+This is a demonstration of use of Helm in the deployment of Rails Apps.
 
-* Ruby version
+## SETUP
 
-* System dependencies
+Ensure you have Ruby-2.6.4,  Rails 6.0.2 and PostgresQL Server installed.
 
-* Configuration
+  01. Clone this Repo and `cd` to the project folder.
 
-* Database creation
+  ```bash
+    $ git clone https://github.com/thoth-ky/railsapp-helm-deployment.git
+  ```
 
-* Database initialization
+  ```bash
+  $ cd railsapp-helm-deployment
+  ```
 
-* How to run the test suite
+  2. Install all dependencies.
 
-* Services (job queues, cache servers, search engines, etc.)
+  ```bash
+    $ bundle install
+  ```
 
-* Deployment instructions
+  3. Copy `.env.template` as `.env` and edit the values to correspond to your local settings.
 
-* ...
+  ```bash
+    $ cp .env.template .env
+  ```
+
+  4. Create the database and run migrations.
+
+  ```bash
+    $ rails db:create
+  ```
+
+  ```bash
+    $ rails db:migrate
+  ```
+
+  5. Start the server.
+
+  ```bash
+    $ rails s
+  ```
+
+## HELM
+
+The goal here is to create a helm chart for this app.
+
+TBC..
+
+## Authors
+
+- Mutuku Kyalo

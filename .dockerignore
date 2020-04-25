@@ -1,6 +1,8 @@
 .dockerignore
 .Dockerfile
 .gitignore
+.env
+.env.template
 /.bundle
 /log/*
 /tmp/*
