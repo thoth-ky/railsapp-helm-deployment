@@ -38,7 +38,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  name: htto
+  name: http
   type: NodePort
   externalPort: 80
   internalPort: 3000
