@@ -50,7 +50,7 @@ Ensure you have Ruby-2.6.4,  Rails 6.0.2 and PostgresQL Server installed.
 
 To build an image of this project excute the following command.
  ```bash
-  $ docker build -f Dockerfile -t rails-helm .
+  $ docker build --build-arg MASTER_KEY=[MASTER_KEY] -f Dockerfile -t rails-helm .
  ```
 
 Proceed to tag the image and push it.

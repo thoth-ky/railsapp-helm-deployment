@@ -83,4 +83,7 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  username: <%= Rails.application.credentials.prod_db[:db_username] %>
+  password: <%= Rails.application.credentials.prod_db[:db_password] %>
+  host: <%= Rails.application.credentials.prod_db[:db_host] || 'localhost' %>
+  database: <%= Rails.application.credentials.prod_db[:db_name] %>

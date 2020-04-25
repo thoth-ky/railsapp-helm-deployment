@@ -3,7 +3,7 @@ LABEL Author="Joseph Kyalo" Email="jmutuku95@gmail.com"
 
 ARG USER=docker
 ARG MASTER_KEY
-ARG RAILS_ENV
+ARG RAILS_ENV=production
 
 ENV RAILS_ENV=$RAILS_ENV
 ENV RAILS_MASTER_KEY=$MASTER_KEY

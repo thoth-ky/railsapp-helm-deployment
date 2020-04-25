@@ -53,7 +53,7 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           command: ["/bin/sh"]
-          args: ["-c", "rails db:setup && rails server -b 0.0.0.0 -p {{ .Values.service.internalPort }}"]
+          args: ["-c", "rails db:setup && rails assets:precompile && rails server -b 0.0.0.0 -p {{ .Values.service.internalPort }}"]
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
