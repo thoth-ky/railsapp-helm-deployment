@@ -22,6 +22,10 @@ version: 0.1.0
 # follow Semantic Versioning. They should reflect the version the application is using.
 appVersion: 1.16.0
 
+maintainers:
+  - name: Joseph Kyalo
+    email: jmutuku95@gmail.com
+
 dependencies:
   - name: postgresql
     alias: pg-prod

@@ -76,3 +76,9 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+global:
+  postgresql:
+    postgresqlUsername: rails_app
+    postgresqlPostgresPassword: 'password'
+    postgresqlDatabase: rails_app_db
